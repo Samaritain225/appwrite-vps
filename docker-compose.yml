@@ -1074,8 +1074,6 @@ services:
       retries: 20
       start_period: 5s
 
-
-
   mariadb:
     image: mariadb:10.11
     <<: *x-logging
@@ -1088,7 +1086,7 @@ services:
       - MYSQL_USER=${_APP_DB_USER}
       - MYSQL_PASSWORD=${_APP_DB_PASS}
       - MARIADB_AUTO_UPGRADE=1
-    command: "mysqld --innodb-flush-method=fsync --skip-name-resolve"
+    command: "mysqld --innodb-flush-method=fsync"
 
   redis:
     image: redis:7.4.7-alpine
